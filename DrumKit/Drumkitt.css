@@ -1,0 +1,49 @@
+body{
+  background-image: url('wallpaper.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.head
+{
+  font-size: 50px;
+  font-family: cursive;
+  font-weight: bold;
+  margin-left: 40%;
+
+}
+
+.key{
+ width:100px;
+ height: 80px;
+ border: 5px solid grey;
+ border-radius: 30%;
+ margin: 30px;
+ float:left;
+ margin-top: 10%;
+ box-shadow: 2px 5px;
+ transition: all 0.07s;
+ text-align: center;
+ background: rgba(0,0,0,0.2);
+}
+
+.playing{
+  transform: scale(1.1);
+  border-color:#ffc600;
+  box-shadow: 0 0 10px green;
+
+}
+#names{
+ font-size: 20px;
+ font-family: monospace;
+  color: grey;
+
+}
+
+kbd{
+ font-size:40px;
+ color: white;
+font-family: 'Times New Roman';
+font-weight: 600;
+}

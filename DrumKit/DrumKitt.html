@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+  <meta charset="utf-8">
+  <link rel='stylesheet' href='Drumkitt.css'>
+
+</head>
+<body>
+  <p class='head'> Drum Kit </p>
+ <center>
+
+ <div class='keys'>
+
+    <div data-key='65' class='key'>
+    <kbd>A</kbd><br>
+      <span id='names' class="sound">Snare</span>
+    </div>
+
+    <div  data-key='83' class='key'>
+    <kbd>S</kbd><br>
+      <span id='names' class="sound">Hihat</span>
+    </div>
+    <div  data-key='68' class='key'>
+    <kbd>D</kbd><br>
+      <span id='names' class="sound">Kick</span>
+    </div>
+    <div  data-key='70' class='key'>
+    <kbd>F</kbd><br>
+      <span id='names' class="sound">Crash</span>
+    </div>
+    <div  data-key='74' class='key'>
+    <kbd>J</kbd><br>
+      <span id='names' class="sound">Tom</span>
+    </div>
+    <div  data-key='75' class='key'>
+    <kbd>K</kbd><br>
+      <span id='names' class="sound">Crash2</span>
+    </div>
+    <div data-key='76' class='key'>
+    <kbd>L</kbd><br>
+      <span id='names' class="sound">Bongo</span>
+    </div>
+  </div>
+
+
+ <audio data-key='65' src="Sounds/Snare.mp3"> </audio>
+ <audio data-key='83' src="Sounds/Hihat.mp3"> </audio>
+ <audio data-key='68' src="Sounds/Bass.mp3"> </audio>
+ <audio data-key='70' src="Sounds/Crash.mp3"> </audio>
+ <audio data-key='74' src="Sounds/Tom.mp3"> </audio>
+ <audio data-key='75' src="Sounds/Crash2.mp3"> </audio>
+ <audio data-key='76' src="Sounds/Bongo.mp3"> </audio>
+
+
+ <script type="text/javascript">
+window.addEventListener('keydown', function(e){
+  const audio=document.querySelector(`audio[data-key="${e.keyCode}"]`);
+  const key=document.querySelector(`.key[data-key="${e.keyCode}"]`);
+  if(!audio) return;
+  audio.currentTime=0;
+  audio.play();
+  key.classList.add('playing');
+  });
+
+  function removeTransition(e){
+    if(e.propertyName !== 'transform') return; //Skip it if it's not a transform
+    this.classList.remove('playing');
+  }
+
+  const keys=document.querySelectorAll('.key');
+ keys.forEach(key => key.addEventListener('transitionend',removeTransition));
+
+
+ </script>
+
+</body>
+</html>
